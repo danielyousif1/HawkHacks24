@@ -46,7 +46,7 @@
                 android:hint="Amount"
                 android:inputType="numberDecimal"
                 android:padding="10dp"
-                android:gravity="center"
+                android:gravity="center"/>
 
             <Button
                 android:id="@+id/donate_button"
