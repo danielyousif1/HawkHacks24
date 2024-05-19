@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Populate charity list
+        DatabaseManager.fetchData("Charities");
 
         EditText usernameText = findViewById(R.id.usernameText);
         EditText passwordText = findViewById(R.id.passwordText);

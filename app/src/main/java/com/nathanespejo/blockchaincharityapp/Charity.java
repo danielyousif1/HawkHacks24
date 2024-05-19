@@ -1,60 +1,63 @@
 package com.nathanespejo.blockchaincharityapp;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Charity {
+    private List<CharityData> data;
 
-    public static ArrayList<Charity> charityArrayList;
-
-    private int id;
-    private String name, descS, descL;
-    private double holding;
-
-    public Charity(int id, String name, String descS, String descL, double holding) {
-        this.id = id;
-        this.name = name;
-        this.descS = descS;
-        this.descL = descL;
-        this.holding = holding;
+    public List<CharityData> getData() {
+        return data;
     }
 
-    public int getId() {
-        return id;
+    public void setData(List<CharityData> data) {
+        this.data = data;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public static class CharityData {
+        private String CharityDescL;
+        private String CharityDescS;
+        private int CharityID;
+        private String CharityName;
+        private int Holding;
 
-    public String getName() {
-        return name;
-    }
+        public String getCharityDescL() {
+            return CharityDescL;
+        }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+        public void setCharityDescL(String charityDescL) {
+            CharityDescL = charityDescL;
+        }
 
-    public String getDescS() {
-        return descS;
-    }
+        public String getCharityDescS() {
+            return CharityDescS;
+        }
 
-    public void setDescS(String descS) {
-        this.descS = descS;
-    }
+        public void setCharityDescS(String charityDescS) {
+            CharityDescS = charityDescS;
+        }
 
-    public String getDescL() {
-        return descL;
-    }
+        public int getCharityID() {
+            return CharityID;
+        }
 
-    public void setDescL(String descL) {
-        this.descL = descL;
-    }
+        public void setCharityID(int charityID) {
+            CharityID = charityID;
+        }
 
-    public double getHolding() {
-        return holding;
-    }
+        public String getCharityName() {
+            return CharityName;
+        }
 
-    public void setHolding(double holding) {
-        this.holding = holding;
+        public void setCharityName(String charityName) {
+            CharityName = charityName;
+        }
+
+        public int getHolding() {
+            return Holding;
+        }
+
+        public void setHolding(int holding) {
+            Holding = holding;
+        }
     }
 }

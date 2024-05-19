@@ -2,6 +2,7 @@ package com.nathanespejo.blockchaincharityapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
@@ -30,7 +31,6 @@ public class HomeActivity extends AppCompatActivity {
 
         //Open charitylist frag
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new CharityListFragment())
-                .addToBackStack(null)
                 .commit();
 
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
@@ -50,6 +50,7 @@ public class HomeActivity extends AppCompatActivity {
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment)
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .addToBackStack(null)
                         .commit();
             }
 
@@ -65,10 +66,21 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    public void openCharityFragment(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment)
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                .commit();
+    @Override
+    public void onBackPressed() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        if (fragmentManager.getBackStackEntryCount() > 1) {
+            fragmentManager.popBackStack();
+        } else {
+            super.onBackPressed();
+        }
     }
 
+    public void openCharityFragment(Fragment fragment) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frameLayout, fragment)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .addToBackStack(null)
+                .commit();
+    }
 }

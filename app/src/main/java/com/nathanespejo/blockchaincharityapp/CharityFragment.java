@@ -25,11 +25,12 @@ public class CharityFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_charity, container, false);
 
         int index = getArguments().getInt("index"); //Get charity class?
-        Charity charity = Charity.charityArrayList.get(index);
+        Charity.CharityData charity = DatabaseManager.charityDataList.get(index);
+
         TextView name = view.findViewById(R.id.name);
-        name.setText(charity.getName());
+        name.setText(charity.getCharityName());
         TextView description = view.findViewById(R.id.description);
-        description.setText(charity.getDescL());
+        description.setText(charity.getCharityDescL());
 
         return view;
     }
