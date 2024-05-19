@@ -13,3 +13,8 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+
+# Added by cargo
+
+/target
