@@ -2,11 +2,27 @@ package com.nathanespejo.blockchaincharityapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_main);
 
-        //loadFromDBToMemory();
+
+        //Populate charity list
 
         EditText usernameText = findViewById(R.id.usernameText);
         EditText passwordText = findViewById(R.id.passwordText);
@@ -33,10 +50,5 @@ public class MainActivity extends AppCompatActivity {
             //Open new activity
             startActivity(new Intent(MainActivity.this, HomeActivity.class));
         });
-    }
-
-    private void loadFromDBToMemory() {
-        SQLiteManager sqLiteManager = SQLiteManager.instanceOfDatabase(this);
-        sqLiteManager.populateUserListArray();
     }
 }

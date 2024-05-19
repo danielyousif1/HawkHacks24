@@ -9,6 +9,7 @@
 
 
     <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/themeColour"
@@ -16,19 +17,28 @@
         app:tabSelectedTextColor="@color/white">
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/tab1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Charities" />
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/tab2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transaction History" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tab3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Account" />
 
     </com.google.android.material.tabs.TabLayout>
-
-    <ListView
+    
+    <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 
 </LinearLayout>
