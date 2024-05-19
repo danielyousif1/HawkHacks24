@@ -9,49 +9,49 @@
         android:id="@+id/charityName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Charity Name: "
-        android:textSize="14sp"
+        android:text="Green Tomorrow"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/sender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sender: "
-        android:textSize="10sp" />
+        android:text="Sender: John"
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/amount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Amount: "
-        android:textSize="10sp" />
+        android:text="Amount: NEAR$600"
+        android:textSize="12sp" />
+    <!--
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date: "
+            android:textSize="10sp" />
 
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Date: "
-        android:textSize="10sp" />
+        <TextView
+            android:id="@+id/receiver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Receiver: "
+            android:textSize="10sp" />
 
-    <TextView
-        android:id="@+id/receiver"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Receiver: "
-        android:textSize="10sp" />
+        <TextView
+            android:id="@+id/send_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Blockchain Send Address: "
+            android:textSize="10sp" />
 
-    <TextView
-        android:id="@+id/send_address"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Blockchain Send Address: "
-        android:textSize="10sp" />
-
-    <TextView
-        android:id="@+id/receive_address"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Blockchain Receive Address: "
-        android:textSize="10sp" />
+        <TextView
+            android:id="@+id/receive_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Blockchain Receive Address: "
+            android:textSize="10sp" />-->
 </LinearLayout>

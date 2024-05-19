@@ -2,27 +2,14 @@ package com.nathanespejo.blockchaincharityapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import com.nathanespejo.blockchaincharityapp.dataclasses.User;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,7 +21,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Populate charity list
-        DatabaseManager.fetchData("Charities");
+        DatabaseAPI.fetchData("Users");
+        DatabaseAPI.fetchData("Charities");
+        DatabaseAPI.fetchData("Transactions");
 
         EditText usernameText = findViewById(R.id.usernameText);
         EditText passwordText = findViewById(R.id.passwordText);
@@ -42,14 +31,15 @@ public class MainActivity extends AppCompatActivity {
         loginButton.setOnClickListener(view -> {
             String user = usernameText.getText().toString();
             String pass = passwordText.getText().toString();
-            if (user.matches("") || pass.matches("")) {
-                //do nothing
-                return;
+
+            for (User.UserData data: DatabaseAPI.userDataList) {
+                if ((data.getEmail().matches(user)) && (data.getPassword().matches(pass))) {
+                    startActivity(new Intent(MainActivity.this, HomeActivity.class));
+                    return;
+                }
             }
 
-            //Check if username and pass exist as db entry
-            //Open new activity
-            startActivity(new Intent(MainActivity.this, HomeActivity.class));
+            Toast.makeText(this, "Incorrect login!", Toast.LENGTH_SHORT).show();
         });
     }
 }

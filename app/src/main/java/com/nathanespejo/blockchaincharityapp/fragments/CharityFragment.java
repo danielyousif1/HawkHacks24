@@ -1,14 +1,16 @@
-package com.nathanespejo.blockchaincharityapp;
+package com.nathanespejo.blockchaincharityapp.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+
+import com.nathanespejo.blockchaincharityapp.DatabaseAPI;
+import com.nathanespejo.blockchaincharityapp.R;
+import com.nathanespejo.blockchaincharityapp.dataclasses.Charity;
 
 public class CharityFragment extends Fragment {
 
@@ -25,7 +27,7 @@ public class CharityFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_charity, container, false);
 
         int index = getArguments().getInt("index"); //Get charity class?
-        Charity.CharityData charity = DatabaseManager.charityDataList.get(index);
+        Charity.CharityData charity = DatabaseAPI.charityDataList.get(index);
 
         TextView name = view.findViewById(R.id.name);
         name.setText(charity.getCharityName());

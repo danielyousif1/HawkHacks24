@@ -6,18 +6,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import com.nathanespejo.blockchaincharityapp.fragments.AccountFragment;
+import com.nathanespejo.blockchaincharityapp.fragments.CharityListFragment;
+import com.nathanespejo.blockchaincharityapp.fragments.TransactionFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -42,15 +36,17 @@ public class HomeActivity extends AppCompatActivity {
                 switch(tab.getPosition()){
                     case 0:
                         fragment = new CharityListFragment();
+                        break;
                     case 1:
-                        return;
+                        fragment = new TransactionFragment();
+                        break;
                     case 2:
-                        return;
+                        fragment = new AccountFragment();
+                        break;
                 }
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment)
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                        .addToBackStack(null)
                         .commit();
             }
 

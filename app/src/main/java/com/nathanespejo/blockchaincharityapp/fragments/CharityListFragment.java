@@ -1,6 +1,6 @@
-package com.nathanespejo.blockchaincharityapp;
+package com.nathanespejo.blockchaincharityapp.fragments;
 
-import static com.nathanespejo.blockchaincharityapp.DatabaseManager.charityDataList;
+import static com.nathanespejo.blockchaincharityapp.DatabaseAPI.charityDataList;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,7 +11,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
+
+import com.nathanespejo.blockchaincharityapp.HomeActivity;
+import com.nathanespejo.blockchaincharityapp.R;
+import com.nathanespejo.blockchaincharityapp.dataclasses.Charity;
 
 import java.util.ArrayList;
 import java.util.List;

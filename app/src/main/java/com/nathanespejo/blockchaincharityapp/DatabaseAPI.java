@@ -4,25 +4,23 @@ package com.nathanespejo.blockchaincharityapp;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSyntaxException;
+import com.nathanespejo.blockchaincharityapp.dataclasses.Charity;
+import com.nathanespejo.blockchaincharityapp.dataclasses.Transaction;
+import com.nathanespejo.blockchaincharityapp.dataclasses.User;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class DatabaseManager {
+public class DatabaseAPI {
 
     static String jsonString;
+    public static List<User.UserData> userDataList;
     public static List<Charity.CharityData> charityDataList;
-
+    public static List<Transaction.TransactionData> transactionDataList;
 
     public static void fetchData(String dataType) {
         new Thread(new Runnable() {
@@ -41,7 +39,23 @@ public class DatabaseManager {
                     if (response.isSuccessful()) {
                         jsonString = response.body().string();
                         Log.d("SQL", jsonString);
-                        parseJsonResponse(jsonString);
+                        Gson gson = new Gson();
+
+                        //Parse json into classes
+                        switch (dataType) {
+                            case "Users":
+                                User user = gson.fromJson(jsonString, User.class);
+                                userDataList = user.getData();
+                                break;
+                            case "Charities":
+                                Charity charity = gson.fromJson(jsonString, Charity.class);
+                                charityDataList = charity.getData();
+                                break;
+                            case "Transactions":
+                                Transaction transaction = gson.fromJson(jsonString, Transaction.class);
+                                transactionDataList = transaction.getData();
+                                break;
+                        }
                     } else {
                         // Handle unsuccessful response
                         Log.e("SQL", "Unsuccessful response: " + response.code());
@@ -52,13 +66,5 @@ public class DatabaseManager {
                 }
             }
         }).start();
-    }
-
-    private static void parseJsonResponse(String jsonString) {
-        Gson gson = new Gson();
-        Charity charity = gson.fromJson(jsonString, Charity.class);
-
-        // Now you can access your data using the Charity object
-        charityDataList = charity.getData();
     }
 }

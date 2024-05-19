@@ -1,4 +1,4 @@
-package com.nathanespejo.blockchaincharityapp;
+package com.nathanespejo.blockchaincharityapp.dataclasses;
 
 import java.util.List;
 
