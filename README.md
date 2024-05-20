@@ -22,7 +22,7 @@ For secure and scalable data storage, we utilized Neurelo's cloud database solut
 **Android App Development with Java:** 
 To make our platform accessible on the go, we developed a mobile application for Android using Java. The app offers the same functionalities as the web platform, enabling users to donate, track their contributions, and view project progress directly from their smartphones. We focused on creating an intuitive and seamless user experience, making it easy for donors to navigate the platform, view their donation history, and track the progress of the projects they support.
 
-##Challenges We Ran Into
+## Challenges We Ran Into
 Building Nude Donations was an exciting journey, but it came with its share of challenges:
 
 **Implementing the Database with Neurelo:** 
@@ -46,8 +46,8 @@ We are particularly proud of the user interface and user experience design of ou
 ## What We Learned
 Participating in this hackathon and developing Nude Donations was a tremendous learning experience for our team. Here are some of the key lessons we learned:
 
-**Deep Dive into NEAR Protocol: 
-**We gained extensive knowledge about NEAR Protocol and the intricacies of implementing blockchain technology. Learning to use Rust to develop on the NEAR blockchain provided us with valuable insights into creating transparent and immutable transaction records.
+**Deep Dive into NEAR Protocol:** 
+We gained extensive knowledge about NEAR Protocol and the intricacies of implementing blockchain technology. Learning to use Rust to develop on the NEAR blockchain provided us with valuable insights into creating transparent and immutable transaction records.
 
 **Version Control and Git:** 
 As this was our first hackathon and collaborative project, we learned a great deal about version control and using Git effectively. Managing our codebase, handling merges, and resolving conflicts were essential skills that we developed throughout the project. This experience has prepared us for future collaborative projects and reinforced the importance of good version control practices.
